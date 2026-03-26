@@ -2501,7 +2501,6 @@ function handleTrial25(i){
   trial25AdvancePhaseIfNeeded();
 }
 
-/* ---------- start dispatch ---------- */
 
 function startTrialGame(trialNum){
   clearUiTimers();
@@ -2542,7 +2541,6 @@ function startTrialGame(trialNum){
   syncDifficultySkipVisibility();
 }
 
-/* ---------- events ---------- */
 
 function routeCellInteraction(i){
   if(uiMode !== "playing" || mode !== "playing") return;
@@ -2715,7 +2713,6 @@ cells.forEach((cell) => {
   });
 });
 
-/* ---------- init ---------- */
 
 ensureFinalOverlay();
 
