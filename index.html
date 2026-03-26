@@ -3,94 +3,128 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DIV Trials</title>
+  <title>DIV</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="top">
-    <h1>DIV Trials</h1>
+  <header class="topbar">
+    <h1>DIV</h1>
 
-    <nav class="trialBar" aria-label="Trials 1 to 25">
-      <!-- 1–25 -->
-      <button class="trial is-selected" data-trial="1">1</button>
-      <button class="trial" data-trial="2">2</button>
-      <button class="trial" data-trial="3">3</button>
-      <button class="trial" data-trial="4">4</button>
-      <button class="trial" data-trial="5">5</button>
-      <button class="trial" data-trial="6">6</button>
-      <button class="trial" data-trial="7">7</button>
-      <button class="trial" data-trial="8">8</button>
-      <button class="trial" data-trial="9">9</button>
-      <button class="trial" data-trial="10">10</button>
-      <button class="trial" data-trial="11">11</button>
-      <button class="trial" data-trial="12">12</button>
-      <button class="trial" data-trial="13">13</button>
-      <button class="trial" data-trial="14">14</button>
-      <button class="trial" data-trial="15">15</button>
-      <button class="trial" data-trial="16">16</button>
-      <button class="trial" data-trial="17">17</button>
-      <button class="trial" data-trial="18">18</button>
-      <button class="trial" data-trial="19">19</button>
-      <button class="trial" data-trial="20">20</button>
-      <button class="trial" data-trial="21">21</button>
-      <button class="trial" data-trial="22">22</button>
-      <button class="trial" data-trial="23">23</button>
-      <button class="trial" data-trial="24">24</button>
-      <button class="trial" data-trial="25">25</button>
-    </nav>
+    <div class="topbarActions">
+      <div id="difficultySkipPanel" class="difficultySkipPanel">
+        <button id="difficultySkipBtn" class="difficultySkipBtn">
+          Skip to Next Difficulty
+        </button>
+      </div>
 
-    <p class="intro">
-      Click a number to reveal the instruction.
-    </p>
+      <button id="resetAllBtn" class="resetAllBtn">Reset All Progress</button>
+    </div>
   </header>
 
-  <section class="panel" aria-live="polite">
-    <h2 id="trialTitle">Trial 1</h2>
-    <p id="trialText">
-      Find the most unique tile. Hint: tiles with the same color can be eliminated.
-      You only win if the unique tile is revealed last.
-    </p>
+  <main class="app">
+    <section class="playground">
 
-    <div class="panelActions">
-      <button id="startBtn">Start</button>
-      <button id="resetBtn" class="ghost">Reset</button>
-    </div>
+      <!-- 环绕数字层 -->
+      <div id="ringNumbers" class="ringNumbers" aria-label="Trial selection">
+        <!-- top -->
+        <button class="ringNum pos-1" data-trial="1">1</button>
+        <button class="ringNum pos-2" data-trial="2">2</button>
+        <button class="ringNum pos-3" data-trial="3">3</button>
+        <button class="ringNum pos-4" data-trial="4">4</button>
+        <button class="ringNum pos-5" data-trial="5">5</button>
 
-    <p id="status" class="status">Ready.</p>
-  </section>
+        <!-- right -->
+        <button class="ringNum pos-6" data-trial="6">6</button>
+        <button class="ringNum pos-7" data-trial="7">7</button>
+        <button class="ringNum pos-8" data-trial="8">8</button>
+        <button class="ringNum pos-9" data-trial="9">9</button>
+        <button class="ringNum pos-10" data-trial="10">10</button>
 
-  <main class="stage">
-    <section id="grid" class="grid" aria-label="5 by 5 grid">
-      <!-- 25 div cells -->
-      <div class="cell" data-i="1" tabindex="0" role="button" aria-label="Tile 1"></div>
-      <div class="cell" data-i="2" tabindex="0" role="button" aria-label="Tile 2"></div>
-      <div class="cell" data-i="3" tabindex="0" role="button" aria-label="Tile 3"></div>
-      <div class="cell" data-i="4" tabindex="0" role="button" aria-label="Tile 4"></div>
-      <div class="cell" data-i="5" tabindex="0" role="button" aria-label="Tile 5"></div>
+        <!-- bottom -->
+        <button class="ringNum pos-11" data-trial="11">11</button>
+        <button class="ringNum pos-12" data-trial="12">12</button>
+        <button class="ringNum pos-13" data-trial="13">13</button>
+        <button class="ringNum pos-14" data-trial="14">14</button>
+        <button class="ringNum pos-15" data-trial="15">15</button>
 
-      <div class="cell" data-i="6" tabindex="0" role="button" aria-label="Tile 6"></div>
-      <div class="cell" data-i="7" tabindex="0" role="button" aria-label="Tile 7"></div>
-      <div class="cell" data-i="8" tabindex="0" role="button" aria-label="Tile 8"></div>
-      <div class="cell" data-i="9" tabindex="0" role="button" aria-label="Tile 9"></div>
-      <div class="cell" data-i="10" tabindex="0" role="button" aria-label="Tile 10"></div>
+        <!-- left -->
+        <button class="ringNum pos-16" data-trial="16">16</button>
+        <button class="ringNum pos-17" data-trial="17">17</button>
+        <button class="ringNum pos-18" data-trial="18">18</button>
+        <button class="ringNum pos-19" data-trial="19">19</button>
+        <button class="ringNum pos-20" data-trial="20">20</button>
 
-      <div class="cell" data-i="11" tabindex="0" role="button" aria-label="Tile 11"></div>
-      <div class="cell" data-i="12" tabindex="0" role="button" aria-label="Tile 12"></div>
-      <div class="cell" data-i="13" tabindex="0" role="button" aria-label="Tile 13"></div>
-      <div class="cell" data-i="14" tabindex="0" role="button" aria-label="Tile 14"></div>
-      <div class="cell" data-i="15" tabindex="0" role="button" aria-label="Tile 15"></div>
+        <!-- unlock later -->
+        <button class="ringNum ringNum-extra pos-21 hidden" data-trial="21">21</button>
+        <button class="ringNum ringNum-extra pos-22 hidden" data-trial="22">22</button>
+        <button class="ringNum ringNum-extra pos-23 hidden" data-trial="23">23</button>
+        <button class="ringNum ringNum-extra pos-24 hidden" data-trial="24">24</button>
 
-      <div class="cell" data-i="16" tabindex="0" role="button" aria-label="Tile 16"></div>
-      <div class="cell" data-i="17" tabindex="0" role="button" aria-label="Tile 17"></div>
-      <div class="cell" data-i="18" tabindex="0" role="button" aria-label="Tile 18"></div>
-      <div class="cell" data-i="19" tabindex="0" role="button" aria-label="Tile 19"></div>
-      <div class="cell" data-i="20" tabindex="0" role="button" aria-label="Tile 20"></div>
+        <!-- 25 only after 21-24 -->
+        <button id="center25Btn" class="center25Btn hidden" data-trial="25">25</button>
+      </div>
 
-      <div class="cell" data-i="21" tabindex="0" role="button" aria-label="Tile 21"></div>
-      <div class="cell" data-i="22" tabindex="0" role="button" aria-label="Tile 22"></div>
-      <div class="cell" data-i="23" tabindex="0" role="button" aria-label="Tile 23"></div>
-      <div class="cell" data-i="24" tabindex="0" role="button" aria-label="Tile 24"></div>
-      <div class="cell" data-i="25" tabindex="0" role="button" aria-label="Tile 25"></div>
+      <!-- 中间状态层：严格覆盖 grid 区域 -->
+      <div id="centerOverlay" class="centerOverlay">
+        <div id="choosePrompt" class="choosePrompt">
+          <span>CHOOSE</span>
+          <span>A</span>
+          <span>NUMBER</span>
+        </div>
+
+        <div id="ruleCard" class="ruleCard hidden" aria-live="polite">
+          <h2 id="trialTitle">Trial 1</h2>
+          <p id="trialText">Rule goes here.</p>
+          <div class="ruleActions">
+            <button id="startBtn">Start</button>
+            <button id="backBtn" class="ghost">Back</button>
+          </div>
+        </div>
+
+        <div id="messageCard" class="messageCard hidden" aria-live="polite">
+          <p id="messageText">Congratulations! Trial 1 completed.</p>
+        </div>
+      </div>
+
+      <!-- 中间 grid -->
+      <section id="gridWrap" class="gridWrap">
+        <div id="grid" class="grid" aria-label="5 by 5 grid">
+          <div class="cell" data-i="1" tabindex="0" role="button" aria-label="Tile 1"></div>
+          <div class="cell" data-i="2" tabindex="0" role="button" aria-label="Tile 2"></div>
+          <div class="cell" data-i="3" tabindex="0" role="button" aria-label="Tile 3"></div>
+          <div class="cell" data-i="4" tabindex="0" role="button" aria-label="Tile 4"></div>
+          <div class="cell" data-i="5" tabindex="0" role="button" aria-label="Tile 5"></div>
+
+          <div class="cell" data-i="6" tabindex="0" role="button" aria-label="Tile 6"></div>
+          <div class="cell" data-i="7" tabindex="0" role="button" aria-label="Tile 7"></div>
+          <div class="cell" data-i="8" tabindex="0" role="button" aria-label="Tile 8"></div>
+          <div class="cell" data-i="9" tabindex="0" role="button" aria-label="Tile 9"></div>
+          <div class="cell" data-i="10" tabindex="0" role="button" aria-label="Tile 10"></div>
+
+          <div class="cell" data-i="11" tabindex="0" role="button" aria-label="Tile 11"></div>
+          <div class="cell" data-i="12" tabindex="0" role="button" aria-label="Tile 12"></div>
+          <div class="cell" data-i="13" tabindex="0" role="button" aria-label="Tile 13"></div>
+          <div class="cell" data-i="14" tabindex="0" role="button" aria-label="Tile 14"></div>
+          <div class="cell" data-i="15" tabindex="0" role="button" aria-label="Tile 15"></div>
+
+          <div class="cell" data-i="16" tabindex="0" role="button" aria-label="Tile 16"></div>
+          <div class="cell" data-i="17" tabindex="0" role="button" aria-label="Tile 17"></div>
+          <div class="cell" data-i="18" tabindex="0" role="button" aria-label="Tile 18"></div>
+          <div class="cell" data-i="19" tabindex="0" role="button" aria-label="Tile 19"></div>
+          <div class="cell" data-i="20" tabindex="0" role="button" aria-label="Tile 20"></div>
+
+          <div class="cell" data-i="21" tabindex="0" role="button" aria-label="Tile 21"></div>
+          <div class="cell" data-i="22" tabindex="0" role="button" aria-label="Tile 22"></div>
+          <div class="cell" data-i="23" tabindex="0" role="button" aria-label="Tile 23"></div>
+          <div class="cell" data-i="24" tabindex="0" role="button" aria-label="Tile 24"></div>
+          <div class="cell" data-i="25" tabindex="0" role="button" aria-label="Tile 25"></div>
+        </div>
+
+        <button id="skipTrialBtn" class="skipTrialBtn hidden">
+          Mark as Done
+        </button>
+      </section>
+
     </section>
   </main>
 
