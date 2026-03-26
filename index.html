@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DIV</title>
+  <title>XXV</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="topbar">
-    <h1>DIV</h1>
+    <h1>XXV</h1>
 
     <div class="topbarActions">
       <div id="difficultySkipPanel" class="difficultySkipPanel">
@@ -24,7 +24,6 @@
   <main class="app">
     <section class="playground">
 
-      <!-- 环绕数字层 -->
       <div id="ringNumbers" class="ringNumbers" aria-label="Trial selection">
         <!-- top -->
         <button class="ringNum pos-1" data-trial="1">1</button>
@@ -60,11 +59,15 @@
         <button class="ringNum ringNum-extra pos-23 hidden" data-trial="23">23</button>
         <button class="ringNum ringNum-extra pos-24 hidden" data-trial="24">24</button>
 
-        <!-- 25 only after 21-24 -->
         <button id="center25Btn" class="center25Btn hidden" data-trial="25">25</button>
       </div>
 
-      <!-- 中间状态层：严格覆盖 grid 区域 -->
+      <div id="playRuleBar" class="playRuleBar hidden" aria-live="polite">
+        <div class="playRuleBarInner">
+          <span id="playRuleText" class="playRuleText">Rule</span>
+        </div>
+      </div>
+
       <div id="centerOverlay" class="centerOverlay">
         <div id="choosePrompt" class="choosePrompt">
           <span>CHOOSE</span>
@@ -73,20 +76,40 @@
         </div>
 
         <div id="ruleCard" class="ruleCard hidden" aria-live="polite">
-          <h2 id="trialTitle">Trial 1</h2>
-          <p id="trialText">Rule goes here.</p>
-          <div class="ruleActions">
-            <button id="startBtn">Start</button>
-            <button id="backBtn" class="ghost">Back</button>
+          <div class="ruleCardText">
+            <h2 id="trialTitle">Trial 1</h2>
+            <p id="trialText">Rule goes here.</p>
+
+            <div class="ruleActions">
+              <button id="startBtn">Start</button>
+              <button id="backBtn" class="ghost">Back</button>
+            </div>
+          </div>
+
+          <div class="ruleCardArt">
+            <img
+              id="ruleCardImage"
+              src="assets/rule-card/default.png"
+              alt="Rule card decoration"
+            />
           </div>
         </div>
 
         <div id="messageCard" class="messageCard hidden" aria-live="polite">
-          <p id="messageText">Congratulations! Trial 1 completed.</p>
+          <div class="messageCardText">
+            <p id="messageText">Congratulations! Trial 1 completed.</p>
+          </div>
+
+          <div class="messageCardArt">
+            <img
+              id="completeCardImage"
+              src="assets/complete-card/default.png"
+              alt="Completion card decoration"
+            />
+          </div>
         </div>
       </div>
 
-      <!-- 中间 grid -->
       <section id="gridWrap" class="gridWrap">
         <div id="grid" class="grid" aria-label="5 by 5 grid">
           <div class="cell" data-i="1" tabindex="0" role="button" aria-label="Tile 1"></div>
@@ -120,9 +143,13 @@
           <div class="cell" data-i="25" tabindex="0" role="button" aria-label="Tile 25"></div>
         </div>
 
-        <button id="skipTrialBtn" class="skipTrialBtn hidden">
-          Mark as Done
-        </button>
+        <div id="controlRow" class="controlRow">
+          <button id="auxStartBtn" class="smallControlBtn hidden">Start</button>
+          <button id="auxAgainBtn" class="smallControlBtn hidden">Again</button>
+          <button id="auxSubmitBtn" class="smallControlBtn hidden">Submit</button>
+          <button id="auxResetTrialBtn" class="smallControlBtn hidden">Reset</button>
+          <button id="skipTrialBtn" class="smallControlBtn hidden">Mark as Done</button>
+        </div>
       </section>
 
     </section>
