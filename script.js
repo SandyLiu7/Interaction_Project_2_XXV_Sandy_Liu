@@ -23,6 +23,9 @@ const resetAllBtn = document.getElementById("resetAllBtn");
 const playRuleBar = document.getElementById("playRuleBar");
 const playRuleText = document.getElementById("playRuleText");
 
+const playHomeWrap = document.getElementById("playHomeWrap");
+const playHomeBtn = document.getElementById("playHomeBtn");
+
 const auxStartBtn = document.getElementById("auxStartBtn");
 const auxAgainBtn = document.getElementById("auxAgainBtn");
 const auxSubmitBtn = document.getElementById("auxSubmitBtn");
@@ -240,6 +243,10 @@ function setUiMode(modeName){
     startIdleColorLoop();
   }else{
     stopIdleColorLoop();
+  }
+
+  if(playHomeWrap){
+    playHomeWrap.classList.toggle("hidden", modeName !== "playing");
   }
 }
 
@@ -2601,6 +2608,14 @@ backBtn.addEventListener("click", () => {
   hideControlButtons();
   showIdleState();
 });
+
+if(playHomeBtn){
+  playHomeBtn.addEventListener("click", () => {
+    clearUiTimers();
+    hideControlButtons();
+    showIdleState();
+  });
+}
 
 resetAllBtn.addEventListener("click", () => {
   clearUiTimers();
